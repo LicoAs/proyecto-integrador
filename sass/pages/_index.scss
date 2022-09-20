@@ -1,0 +1,75 @@
+/* SCSS HSL */
+$thistle: hsl(260, 27%, 76%);
+$purple-mountain-majesty: hsla(270, 24%, 61%, 1);
+$rich-black-fogra-29: hsla(206, 70%, 8%, 1);
+$purple: hsl(245, 73%, 62%);
+$oxford-blue: hsl(218, 70%, 18%);
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;1,200;1,300;1,600;1,800;1,900&display=swap');
+
+
+.index__main {
+    background: $oxford-blue;
+    background-image: url('../img/jeremy-thomas-E0AHdsENmDg-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.section-cards{
+    
+    &__header h1{
+    margin: 0;
+    padding: .3em;
+    color: #fff;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 5.5em;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    
+    
+        @media (max-width: 425px) {
+        font-size: 3.5em;
+        padding: .5em;
+        }
+    
+        @media (max-width: 768px) {
+        font-size: 4.5em;
+        padding: .5em;
+        }
+    }
+
+    &__header p{
+    margin: 0;
+    padding: .5em;
+    color: #fff;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 3.5em;
+    font-weight: 800;
+    margin-top: -50px;
+    margin-bottom: -20px;
+    padding-left: 40px;
+
+        @media (max-width: 425px) {
+        font-size: 2.5em;
+        padding: .25;
+        }   
+    }
+
+    &__footer p{
+    margin: 0;
+    padding: .5em;
+    color: #fff;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.5em;
+    }
+}
+
+
+.cards-container {
+    padding: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+}

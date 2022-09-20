@@ -1,0 +1,72 @@
+/* SCSS HSL */
+$thistle: hsl(260, 27%, 76%);
+$purple-mountain-majesty: hsla(270, 24%, 61%, 1);
+$rich-black-fogra-29: hsla(206, 70%, 8%, 1);
+$purple: hsl(245, 73%, 62%);
+$oxford-blue: hsl(218, 70%, 18%);
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;1,200;1,300;1,600;1,800;1,900&display=swap');
+
+.nosotros{
+
+    &__container {
+        background: $oxford-blue;
+        background-image: url("../img/brian-mcgowan-I0fDR8xtApA-unsplash.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 80vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        font-family: 'Barlow Condensed', sans-serif;
+        color: #fff;
+        padding: 0px 0px 40px;
+        //background-color: hsla(0, 0%, 0%, .3);
+        
+    }
+    
+    &__title {
+        
+            margin: 0;
+            padding: .3em;
+            color: #fff;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 5.5em;
+            font-weight: 800;
+            text-align: center;
+            text-transform: uppercase;
+            
+            
+                @media (max-width: 425px) {
+                font-size: 3.5em;
+                padding: .5em;
+                }
+            
+                @media (max-width: 768px) {
+                font-size: 4.5em;
+                padding: .5em;
+                }
+            
+        
+
+    }
+    
+    &__text{
+        font-size: 2em;
+        font-weight: 400;
+        color: #fff;
+        text-shadow: 1px 1px $purple(0, 0%, 0%, .9);
+        margin: 0;
+        padding: 30px 15px;
+        text-align: center;
+        display: flex;
+        text-align: flex-start;
+        justify-content: center;
+        opacity: .85;
+        overflow: auto;
+        
+    }   
+
+}

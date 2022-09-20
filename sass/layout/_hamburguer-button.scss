@@ -1,0 +1,54 @@
+/* SCSS HSL */
+$thistle: hsl(260, 27%, 76%);
+$purple-mountain-majesty: hsla(270, 24%, 61%, 1);
+$rich-black-fogra-29: hsla(206, 70%, 8%, 1);
+$purple: hsl(245, 73%, 62%);
+$oxford-blue: hsl(218, 70%, 18%);
+
+.hamburguer-button {
+    display: block;
+    cursor: pointer;
+    width: 2em;
+    height: 2em;
+    position: relative;
+    border-radius: .2em;
+
+    &:hover {
+        background-color: $purple;
+    }
+
+    &__top-bread {
+        display: block;
+        position: absolute;
+        border-radius: 2px;
+        width: 80%;
+        height: 15%;
+        top: 15%;
+        left: 10%;
+        background-color: #eee;
+    }
+    
+    &__meat {
+        border-radius: 2px;
+        display: block;
+        position: absolute;
+        width: 80%;
+        height: 15%;
+        top: 50%;
+        left: 10%;
+        background-color: #eee;
+        transform: translateY(-50%);
+    }
+    
+    &__bottom-bread {
+        border-radius: 2px;
+        display: block;
+        position: absolute;
+        width: 80%;
+        height: 15%;
+        top: 70%;
+        left: 10%;
+        background-color: #eee;
+    }
+    
+}

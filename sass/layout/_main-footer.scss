@@ -1,0 +1,111 @@
+/* SCSS HSL */
+$thistle: hsl(260, 27%, 76%);
+$purple-mountain-majesty: hsla(270, 24%, 61%, 1);
+$rich-black-fogra-29: hsla(206, 70%, 8%, 1);
+$purple: hsl(245, 73%, 62%);
+$oxford-blue: hsl(218, 70%, 18%);
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;1,200;1,300;1,600;1,800;1,900&display=swap');
+
+
+.main-footer{
+    background-color: #00204E;
+    font-family:'Barlow Condensed', sans-serif;
+    color: $thistle;
+
+    &__heading {
+        text-transform: uppercase;
+        text-decoration: underline;
+    }
+
+    &__logo-container {
+            background-color: #00204E;
+            padding: 1em;
+            flex-basis: 30%;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+    
+        @media (min-width: 768px) {
+            flex-basis: 15%;
+            margin: auto;
+    
+            }
+        @media (min-width: 425px) {    
+            width: 100%;   
+            }  
+        }
+        &__logo-img{
+            
+            @media (max-width: 425px) {      
+                transform: scale(.75);  
+            }
+        }
+
+
+    &__content-container {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        gap: 1em;
+        width: 100%;
+        margin-bottom: 0;
+        @media (min-width: 768px) {
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+    }
+
+    &__content-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1em;
+        font-size: 1.5em;
+        
+        & a{
+            text-decoration: none;
+            color: $thistle;
+            cursor: pointer;
+        }
+    }
+        
+    &__content-icons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+    }
+        
+        
+    &__icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    &__copyright {
+        text-align: center;
+        gap: 1em;
+        font-size: 1.5em;
+        color: $thistle;
+        padding: 1em;
+        margin: 0 auto;
+    }
+
+    &__gmap_canvas {
+        overflow:hidden;
+        background:none!important;
+        height:170px;
+        width:170px;
+    }
+
+    &__mapouter{
+        position:relative;
+        text-align:right;
+        height:170px;
+        width:164px;
+    }
+}
+        

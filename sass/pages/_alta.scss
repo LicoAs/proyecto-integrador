@@ -1,0 +1,140 @@
+/* SCSS HSL */
+$thistle: hsl(260, 27%, 76%);
+$purple-mountain-majesty: hsla(270, 24%, 61%, 1);
+$rich-black-fogra-29: hsla(206, 70%, 8%, 1);
+$purple: hsl(245, 73%, 62%);
+$oxford-blue: hsl(218, 70%, 18%);
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;1,200;1,300;1,600;1,800;1,900&display=swap');
+
+
+.alta{    
+
+    &__content-container{
+        background-image: url('../img/mink-mingle-NORa8-4ohA0-unsplash.jpg');
+        overflow: hidden hidden;
+    }
+
+
+    &__content-title {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 2em;
+        color: #fff;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 1rem;
+
+        & h1{
+            margin: 0;
+            padding: .3em;
+            color: #fff;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 3em;
+            font-weight: 800;
+            text-align: center;
+            text-transform: uppercase;
+            
+            
+                @media (max-width: 425px) {
+                font-size: 3.5em;
+                padding: .5em;
+                }
+            
+                @media (max-width: 768px) {
+                font-size: 4.5em;
+                padding: .5em;
+                }
+            }
+
+    }
+
+    &__content-form {
+        width: 90%;
+        margin: 0 auto;
+        padding-bottom: 5%;
+        font-family:'Barlow Condensed', sans-serif;
+    }
+    
+    &__form{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 50px 20px;
+        color: #fff;
+        font-size: 2em;
+        &-item-container{
+            display: flex;
+            flex-direction: column;
+        }
+        
+        @media (max-width: 425px) {
+            display: flex;
+            flex-direction: column;
+        }
+        @media (max-width: 768px) {
+            display: flex;
+            flex-direction: column;
+        }
+        @media (min-width: 1024px) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: 1440px) {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+
+            &-check {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-evenly;
+                margin-top: 10px;
+            }
+            
+            &-file {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-evenly;
+                margin-top: 0px;
+            }
+            
+            &-button {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-evenly;
+                margin-top: 0px;
+            }
+
+            &-button button {
+                width: 30%;
+            }
+
+            &-check input {
+                margin-left: 20px               
+            }
+
+            
+        
+        
+        &-label {
+            margin-bottom: 10px;
+        }
+
+
+        &-input{
+            &-text {
+            border-radius: 8px;
+            padding: 2px 5px 4px 10px;
+            }
+            &-file {
+                margin-top: 13px;
+            }
+        }
+    }
+}
+
