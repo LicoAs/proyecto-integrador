@@ -15,4 +15,13 @@ $oxford-blue: hsl(218, 70%, 18%);
 
 }
 
+.main-nav-cart-toggle {
+    display: none;
+
+    &:checked ~ .main-header .main-header__cart-container {
+        display: block;
+    }
+
+}
+
 

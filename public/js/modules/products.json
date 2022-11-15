@@ -1,0 +1,174 @@
+[
+    {
+        "id": 0,
+        "name": "Space Traveler",
+        "brand": "Shine",
+        "description": "Cantidad de piezas:	1000 Orientacion: Horizontal Tematica: Paisaje Materiales: Carton",
+        "category": "Puzzle",
+        "age": "8+",
+        "origin": "China",
+        "price": 250,
+        "imgSrc": "img/cards/card-1.png",
+        "stock": 10
+    },
+    {
+        "id": 1,
+        "name": "Halcon Milenario",
+        "brand": "Lego",
+        "description": "Cantidad de piezas:	1000<br>Orientación: Horizontal Temática: Paisaje Materiales: Cartón",
+        "category": "Puzzle",
+        "age": "8+",
+        "origin": "China",
+        "price": 2500,
+        "imgSrc": "img/cards/card-2.png",
+        "stock": 5
+    },
+    {
+        "id": 2,
+        "name": "Hawk Eye Sniper",
+        "brand": "Xshot",
+        "description": `
+                    - Lanza Dardos hasta 20 metros de distancia
+                    - Espacio para almacenar hasta 4 Dardos
+                    - Med"id"as: 58x22x5 cm
+                    `,
+        "category": "Juguetes",
+        "age": "12+",
+        "origin": "China",
+        "price": 5499,
+        "imgSrc": "img/cards/card-3.png",
+        "stock": 18
+    },
+    {
+        "id": 3,
+        "name": "Finger Slug",
+        "brand": "Había Una Vez",
+        "description": "-Es el juguete antiestrés que está siendo tendencia en TIK TOK a nivel mundial y nacional",
+        "category": "Gadget",
+        "age": "5+",
+        "origin": "China",
+        "price": 854,
+        "imgSrc": "img/cards/card-4.png",
+        "stock": 10
+    },
+    {
+        "id": 4,
+        "name": "Uno",
+        "brand": "Ruibal",
+        "description": "Componentes del juego: 108 cartas, Reglamento",
+        "category": "Cartas",
+        "age": "8+",
+        "origin": "China",
+        "price": 984,
+        "imgSrc": "img/cards/card-5.png",
+        "stock": 10
+    },
+    {
+        "id": 5,
+        "name": "Telescopio",
+        "brand": "Newvision",
+        "description": `
+                        Telescopio De Ultima Tecnologia que nos puede acercar al universo repleto de estrellas,
+                        lo que nos brinda algunas "id"eas fascinantes del cielo.
+                        `,
+        "category": "Astronomia",
+        "age": "12+",
+        "origin": "EEUU",
+        "price": 10489,
+        "imgSrc": "img/cards/card-6.png",
+        "stock": 5
+    },
+    {
+        "id": 6,
+        "name": "Among Us Muñeco",
+        "brand": "FUN TOYS BOX",
+        "description": `
+                    MUÑECOS AMONG US "ORIGIN"AL
+                    Disfruta esta excelente coleccion!
+                    tamaño: 15 cm
+                    `,
+        "category": "Muñecos",
+        "age": "8+",
+        "origin": "China",
+        "price": 924,
+        "imgSrc": "img/cards/card-7.png",
+        "stock": 100
+    },
+    {
+        "id": 7,
+        "name": "Dado Anti Stress",
+        "brand": "MEM-TEC",
+        "description": `
+                    Dado Cubo es un innovador juguete diseñado para reducir el estrés, 
+                    mejorar el rendimiento cognitivo y ayudarte a concentrarte.
+                    `,
+        "category": "Puzzle",
+        "age": "8+",
+        "origin": "China",
+        "price": 810,
+        "imgSrc": "img/cards/card-8.png",
+        "stock": 69
+    },
+    {
+        "id": 8,
+        "name": "Transbordador Espacial",
+        "brand": "Shine",
+        "description": `
+                    Transbordador Espacial Con Astronauta Shine.
+                    Con ruedas giratorias.
+                    `,
+        "category": "Astronomia",
+        "age": "12+",
+        "origin": "China",
+        "price": 7990,
+        "imgSrc": "img/cards/card-9.png",
+        "stock": 7
+    },
+    {
+        "id": 9,
+        "name": "Carpa Infantil",
+        "brand": "El mundo del juguete",
+        "description": `
+                    Casita de tela fácil de armar! 
+                    Con tela Lavable! Med"id"as 85cm(ancho) x 165cm(largo) x 95cm(altura)
+                    `,
+        "category": "Puzzle",
+        "age": "8+",
+        "origin": "China",
+        "price": 6490,
+        "imgSrc": "img/cards/card-10.png",
+        "stock": 3
+    },
+    {
+        "id": 10,
+        "name": "Estación Espacial",
+        "brand": "Astro Venture",
+        "description": `
+                    Astro Venture Estación Espacial con Luz y Son"id"o 25 CM
+                    Estación Espacial con Astronauta.
+                    Conecta el enlace en la parte superior de la nave.
+                    `,
+        "category": "Exterior",
+        "age": "3+",
+        "origin": "China",
+        "price": 13500,
+        "imgSrc": "img/cards/card-11.png",
+        "stock": 1
+    },
+    {
+        "id": 11,
+        "name": "Running Spinner",
+        "brand": "Spinner Simple",
+        "description": `
+                    Spinners con diseño de Naruto, AmongUs, Pacman y Astronauta.
+                    Entretenimiento para los chicos desconectados de cualquier aparato!
+                    `,
+        "category": "Gadget",
+        "age": "8+",
+        "origin": "China",
+        "price": 519,
+        "imgSrc": "img/cards/card-12.png",
+        "stock": 10
+    }
+    
+]

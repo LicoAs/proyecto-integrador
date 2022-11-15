@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=auto, initial-scale=1.0">
-    <title>Contacto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+
     <input type="checkbox" class="main-nav-toggle" id="main-nav-toggle">
+    <input type="checkbox" class="main-nav-cart-toggle" id="main-nav-cart-toggle">
     <header class="main-header">
         <div class="main-header__logo-container">
             <img src="img/logo.png" alt="logo" class="main-header__logo-img" class="main-header__logo"  >
         </div>
         
         <div class="main-header__cart-button-container">
-            <img src="img/green-shopping-cart-10909.svg" alt="Carrito">
+            <label for="main-nav-cart-toggle">
+                <img src="img/green-shopping-cart-10909.svg" alt="Carrito">
+            </label>
         </div>
+
         <div class="main-header__hamburguer-button-container">
             <label class="hamburguer-button" for="main-nav-toggle" title="Alternar la barra de navegación">
                 <span class="hamburguer-button__top-bread"></span>
@@ -28,66 +33,53 @@
             <nav class="main-nav__list-container">
                 <ul class="main-nav__list">
                     <li class="main-nav__item">
-                        <a href="index.html" class="main-nav__link">Inicio</a>
+                        <a href="#/index" class="main-nav__link">Inicio</a>
                     </li>
                     <li class="main-nav__item">
-                        <a href="alta.html" class="main-nav__link">Alta</a>
+                        <a href="#/alta" class="main-nav__link">Alta</a>
                     </li>
                     <li class="main-nav__item">
-                        <a href="contacto.html" class="main-nav__link" style="text-decoration: underline !important;" >Contacto</a>
+                        <a href="#/contacto" class="main-nav__link">Contacto</a>
                     </li>
                     <li class="main-nav__item">
-                        <a href="nosotros.html" class="main-nav__link">Nosotros</a>
+                        <a href="#/nosotros" class="main-nav__link">Nosotros</a>
                     </li>
                 </ul>
                 <div class="main-nav__search-container">
                     <label for="main-nav__search-label">Buscar</label>
-                    <input type="text" class="main-nav__search-input" id="main-nav__search-input">
+                    <input type="text" class="main-nav__search-input" id="main-nav__search-input" placeholder="Ingrese su busqueda">
                     <button class="main-nav__search-btn">
                         Buscar
                     </button>
+                </div>
+
+                <div class="main-header__cart-container">
+                    <div class="cart__items-container">
+                        
+                    </div>
+                    <div class="cart__total">
+                        Total $ 
+                    </div>
+                    <div class="cart__button-container">
+                        <div class="cart__clear-btn">
+                            Vaciar carrito
+                        </div>
+                        <div class="cart__buy-btn">
+                            Comprar
+                        </div>
+                    </div>    
                 </div>
             </nav>
         </div>
 
     </header>
 
-    <main class="contact__main">
-        <div class="contact__main-container">
+    <main class="index__main">
+        
 
-            <div class="contact__main-head-container">
-                <h1 class="contact__main-contacto-title">Contacto</h1>
-                <p class="contact__main-contacto-text">Si tienes alguna duda o sugerencia, no dudes en contactarnos.</p>
-            </div>
 
-            <div class="contact__main-form-container">
-                <form action="contacto.html" method="POST" class="">
-                    <div class="contact__main-form-subgroup-1">
-                        <div class="contact__main-form-subgroup-2">
-                            <div class="contact__main-form-group-container-1">
-                                <label for="name" class="contact__main-form-label">Nombre</label>
-                                <input type="text" name="name" id="name" class="contact__main-form-input" placeholder="Nombre" required>
-                            </div>
-                            <div class="contact__main-form-group-container-2">
-                                <label for="email" class="contact__main-form-label">Email</label>
-                                <input type="email" name="email" id="email" class="contact__main-form-input" placeholder="Email" required>
-                            </div>
-                        </div>
-                        <div class="contact__main-form-group-container-3">
-                            <label for="message" class="contact__main-form-label">Mensaje</label>
-                            <textarea name="message" id="message" cols="30" rows="2" class="contact__main-form-input-textarea" placeholder="Escribinos tu mensaje!" required></textarea>
-                        </div>
-                    </div>    
-                    <div>
-                        <div class="contact__main-form-group-container-4">
-                            <input type="submit" value="Enviar" class="contact__main-form-input-submit">
-                            <input type="reset" value="Borrar" class="contact__main-form-input-reset">
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
     </main>
+
     <footer class="main-footer">
         <div class="main-footer__container">
             <div class="main-footer__logo-container">
@@ -106,10 +98,10 @@
                 <div class="main-footer__content">
                     <h2 class="main-footer__heading">Mapa del sitio</h2>
                     <div class="main-footer__content-links">
-                        <a href="index.html" class="main-footer__link">Home</a>
-                        <a href="alta.html" class="main-footer__link">Alta</a>
-                        <a href="contacto.html" class="main-footer__link">Contacto</a>
-                        <a href="nosotros.html" class="main-footer__link">Nosotros</a>
+                        <a href="#/index" class="main-footer__link">Home</a>
+                        <a href="#/alta" class="main-footer__link">Alta</a>
+                        <a href="#/contacto" class="main-footer__link">Contacto</a>
+                        <a href="#/nosotros" class="main-footer__link">Nosotros</a>
                     </div>
                 </div>
                 <div class="main-footer__content">
@@ -124,5 +116,6 @@
                 <p class="main-footer__copyright"><b>© Jugueteria Cosmica S.R.L 2022</b></p>
             </div>
     </footer>
+    <script src="js/main.js" type="module"></script>
 </body>
 </html>

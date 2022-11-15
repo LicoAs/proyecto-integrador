@@ -1,0 +1,74 @@
+
+<div class="alta__main-container">
+    <div class="alta__content-container">
+        <div class="alta__content-title">
+            <h1>Alta</h1>
+        </div>
+        <div class="alta__content-form">
+            <form class="alta__form" action="" method="POST">
+                <div class="alta__form-item-container">
+                    <label class="alta__form-label" for="marca">Marca</label>
+                    <input class="alta__form-input-text" type="text" name="marca" id="marca" placeholder="Marca"  required>
+                </div>
+                <div class="alta__form-item-container">
+                    <label class="alta__form-label" for="modelo">Modelo</label>
+                    <input class="alta__form-input-text" type="text" name="modelo" id="modelo" placeholder="Nombre"  required>
+                </div>
+                <div class="alta__form-item-container">
+                    <label class="alta__form-label" for="categoria">Categoria</label>
+                    <select class="alta__form-input-text" name="categoria" id="categoria"  required>
+                        <option value="1">Aire libre</option>
+                        <option value="2">Arte</option>
+                        <option value="3">Bebes</option>
+                        <option value="4">Paquetes</option>
+                        <option value="5">Ropa</option>
+                        <option value="6">Electronica</option>
+                        <option value="7">Muñecos</option>
+                        <option value="8">Juegos de mesa</option>
+                        <option value="9">Bloques</option>
+                        <option value="10">Peluches</option>
+                        <option value="11">Vehiculos</option>
+                    </select>
+                </div>
+                <div class="alta__form-item-container">
+                    <label class="alta__form-label" for="precio">Precio</label>
+                    <input class="alta__form-input-text" type="text" name="precio" id="precio" placeholder="Precio"  required>
+                </div>
+                <div class="alta__form-item-container">
+                    <label class="alta__form-label" for="stock">Stock</label>
+                    <input class="alta__form-input-text" type="number" name="stock" id="stock" placeholder="Stock entrante"  required>
+                </div>
+                <div class="alta__form-item-container">
+                    <label class="alta__form-label" for="shortDesc">Descripcion corta</label>
+                    <input class="alta__form-input-text" type="text" name="shortDesc" id="shortDesc" placeholder="Ingrese una descripcion corta">
+                </div>
+                <div class="alta__form-item-container">
+                    <label class="alta__form-label" for="longDesc">Descripcion larga</label>
+                    <textarea class="alta__form-input-text" name="longDesc" id="longDesc" cols="1" rows="1" placeholder="Ingrese una descripcion detallada"  required></textarea>
+                </div>
+                <div class="alta__form-item-container">
+                    <label class="alta__form-label" for="ageFrom">Edad Desde</label>
+                    <input class="alta__form-input-text" type="number" name="ageFrom" id="ageFrom" placeholder="Edad desde">
+                </div>
+                <div class="alta__form-item-container">
+                    <label class="alta__form-label" for="ageUpTo">Edad Hasta</label>
+                    <input class="alta__form-input-text" type="number" name="ageUpTo" id="ageUpTo" placeholder="Edad Hasta">
+                </div>
+                <div class="alta__form-item-container-file">
+                    <label class="alta__form-label-file" for="photo">Subir foto</label>
+                    <input class="alta__form-input-file" type="file" name="photo" id="photo">
+                </div>
+                <div class="alta__form-item-container-check">
+                    <label class="alta__form-label" for="shipping">Envio sin cargo?</label>
+                    <input class="alta__form-check" type="checkbox" name="shipping" id="shipping" placeholder="">
+                </div>
+                <div class="alta__form-item-container-button">
+                    <label for="submit"></label>
+                    <button type="submit" id="submitButton">Enviar</button>
+                    <label for="reset"></label>  
+                    <button type="reset" >Borrar</button>  
+                </div>
+            </form> 
+        </div>
+    </div>
+</div>

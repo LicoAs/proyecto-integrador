@@ -1,0 +1,110 @@
+/* SCSS HSL */
+$thistle: hsl(260, 27%, 76%);
+$purple-mountain-majesty: hsla(270, 24%, 61%, 1);
+$rich-black-fogra-29: hsla(206, 70%, 8%, 1);
+$purple: hsl(245, 73%, 62%);
+$oxford-blue: hsl(218, 70%, 18%);
+
+
+.main-header{
+    &__cart-container {
+    display: none;    
+    width: 35%;
+    height: fit-content;
+    position: absolute;
+    top: 80px;
+    right: 5px;
+    z-index: 100;
+    border: 2px solid $purple-mountain-majesty;
+    border-radius: 0 0 5px 5px;
+    backdrop-filter: blur(1px);
+    background-color: hsla(260, 27%, 76%, 0.25);
+    
+    
+    }
+    &__cart-item {
+        display: flex;
+        flex-direction: row;
+        height: 100px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid $purple-mountain-majesty;
+        background-color: rgba($color: #ffffff, $alpha: 0.35);
+        color: white;
+        margin-bottom: 1%;
+        
+        & img {
+            width: 75px;
+            height: 75px;
+            border-radius: 5px;
+        }
+
+            &-quantity{
+                display: flex;
+                flex-direction: row;
+                color: white;
+                align-items: center;
+                justify-content: space-evenly;
+                width: 80px;
+
+                &-button{
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 50%;
+                    border: 1px solid $purple-mountain-majesty;
+                    background-color: $thistle;
+                    color: $purple;
+                    font-size: 1.5rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                }
+                
+            }
+        
+    }
+}
+
+.cart__{
+    &button-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px;
+        backdrop-filter: blur(5px);
+    }
+
+    &buy-btn{
+        width: 30%;
+        background-color: $purple;
+        padding: 5px;    
+        text-align: center;
+        border: 1px solid $purple-mountain-majesty;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    &clear-btn{
+        width: 30%;
+        background-color: $purple;
+        padding: 5px;    
+        text-align: center;
+        border: 1px solid $purple-mountain-majesty;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    &total{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 10px 70px 10px 10px;
+        background-color: rgba($color: #ffffff, $alpha: .35);
+        color: $rich-black-fogra-29;
+    }
+}
+
+

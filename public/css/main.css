@@ -645,6 +645,13 @@ body {
   order: 3;
 }
 
+.main-nav-cart-toggle {
+  display: none;
+}
+.main-nav-cart-toggle:checked ~ .main-header .main-header__cart-container {
+  display: block;
+}
+
 .main-footer {
   background-color: #00204E;
   font-family: "Barlow Condensed", sans-serif;
@@ -736,6 +743,94 @@ body {
   text-align: right;
   height: 170px;
   width: 164px;
+}
+
+/* SCSS HSL */
+.main-header__cart-container {
+  display: none;
+  width: 35%;
+  height: fit-content;
+  position: absolute;
+  top: 80px;
+  right: 5px;
+  z-index: 100;
+  border: 2px solid hsl(270deg, 24%, 61%);
+  border-radius: 0 0 5px 5px;
+  backdrop-filter: blur(1px);
+  background-color: hsla(260deg, 27%, 76%, 0.25);
+}
+.main-header__cart-item {
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid hsl(270deg, 24%, 61%);
+  background-color: rgba(255, 255, 255, 0.35);
+  color: white;
+  margin-bottom: 1%;
+}
+.main-header__cart-item img {
+  width: 75px;
+  height: 75px;
+  border-radius: 5px;
+}
+.main-header__cart-item-quantity {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 80px;
+}
+.main-header__cart-item-quantity-button {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 1px solid hsl(270deg, 24%, 61%);
+  background-color: hsl(260deg, 27%, 76%);
+  color: hsl(245deg, 73%, 62%);
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cart__button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  backdrop-filter: blur(5px);
+}
+.cart__buy-btn {
+  width: 30%;
+  background-color: hsl(245deg, 73%, 62%);
+  padding: 5px;
+  text-align: center;
+  border: 1px solid hsl(270deg, 24%, 61%);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.cart__clear-btn {
+  width: 30%;
+  background-color: hsl(245deg, 73%, 62%);
+  padding: 5px;
+  text-align: center;
+  border: 1px solid hsl(270deg, 24%, 61%);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.cart__total {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 70px 10px 10px;
+  background-color: rgba(255, 255, 255, 0.35);
+  color: hsl(206deg, 70%, 8%);
 }
 
 .card {
