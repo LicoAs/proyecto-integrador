@@ -2,21 +2,27 @@ import { cartItem } from "./cart.js";
 
 class PageInicio {
     static async init() {
-        const buy = document.getElementsByClassName("card__container-bottom-left-buy");
-        const cardBottom = document.getElementsByClassName("card__container-bottom");
-        const remov = document.getElementsByClassName("card__container-bottom-right-remove");
+        const buy = document.getElementsByClassName(
+            "card__container-bottom-left-buy"
+        );
+        const cardBottom = document.getElementsByClassName(
+            "card__container-bottom"
+        );
+        const remov = document.getElementsByClassName(
+            "card__container-bottom-right-remove"
+        );
         const cards = document.getElementsByClassName("card");
         const cardsContainer = document.querySelector(".cards-container");
-        const products = await fetch("/api/products/").then((res) => res.json());
+        const products = await fetch("/api/products/").then((res) =>
+            res.json()
+        );
         console.log(products);
         products.forEach((producto) => {
             const newCard = document.createElement("div");
             newCard.classList.add("card");
             newCard.innerHTML = `
                     <div class="card__container">
-                        <div class="card__container-top"><img src="${producto.imgSrc}" alt="${
-                producto.name
-            }" class="card__container-top"></div>
+                        <div class="card__container-top"><img src="${producto.imgSrc}" alt="${producto.name}" class="card__container-top"></div>
                         <div class="card__container-bottom">
                             <div class="card__container-bottom-left">
                                 <div class="card__container-bottom-left-details">
@@ -43,9 +49,7 @@ class PageInicio {
                             <div class="card__inside-contents-grid-container">
                                 <div class="card__inside-contents-grid-item-container1">
                                     <h3 class="card__inside-contents-grid-item-title">Marca</h3>
-                                    <p class="card__inside-contents-grid-item-description">${
-                                        producto.brand
-                                    }</p>
+                                    <p class="card__inside-contents-grid-item-description">${producto.brand}</p>
                                 </div>
                                 <div class="card__inside-contents-grid__item-container2">
                                     <h3 class="card__inside-contents-grid-item-title">Modelo</h3>
@@ -93,8 +97,7 @@ class PageInicio {
         });
         for (let i = 0; i < cards.length; i++) {
             buy[i].addEventListener("click", () => {
-                cardBottom[i].classList.toggle("clicked"),
-                cartItem(i);
+                cardBottom[i].classList.toggle("clicked"), cartItem(i);
             });
             remov[i].addEventListener("click", () =>
                 cardBottom[i].classList.toggle("clicked")
@@ -104,4 +107,3 @@ class PageInicio {
 }
 
 export default PageInicio;
-

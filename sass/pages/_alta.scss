@@ -138,3 +138,14 @@ $oxford-blue: hsl(218, 70%, 18%);
     }
 }
 
+.products-table-container {
+    border: 1px solid #fff;
+    backdrop-filter: blur(8px);
+    color: #fff;
+}
+
+.products-table-container td {
+    padding: 5px;
+}
+
+

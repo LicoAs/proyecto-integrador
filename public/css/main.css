@@ -757,7 +757,18 @@ body {
   border: 2px solid hsl(270deg, 24%, 61%);
   border-radius: 0 0 5px 5px;
   backdrop-filter: blur(1px);
-  background-color: hsla(260deg, 27%, 76%, 0.25);
+  background-color: hsla(258deg, 18%, 75%, 0.7);
+}
+.main-header__cart-container::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid hsla(258deg, 18%, 75%, 0.7);
 }
 .main-header__cart-item {
   display: flex;
@@ -1273,6 +1284,16 @@ body {
 }
 .alta__form-input-file {
   margin-top: 13px;
+}
+
+.products-table-container {
+  border: 1px solid #fff;
+  backdrop-filter: blur(8px);
+  color: #fff;
+}
+
+.products-table-container td {
+  padding: 5px;
 }
 
 .contact__main {

@@ -33,41 +33,37 @@ cartItemList.push(products[e])
 console.log(cartItemList)
 }
 
-const plusOne = () => {
-    const cartQuantityNum = document.querySelector('.main-header__cart-item-quantity-number')
-    const itemTotalPrice = document.querySelector('.main-header__cart-item-total-price')
-    const itemPrice = document.querySelector('.main-header__cart-item-price')
-    cartQuantityNum.innerHTML = actualQuantity += 1
-    itemTotalPrice.innerHTML = `$ ${itemPrice.innerHTML.slice(2) * actualQuantity}`
-    console.log(itemTotalPrice)
 
+
+const plusOne = (e) => {
+    const quantity = e.target.previousElementSibling;
+    quantity.innerHTML = Number(quantity.innerHTML) + 1;
 }
 
-const minusOne = () => {
-    const cartQuantityNum = document.querySelector('.main-header__cart-item-quantity-number')
-    const itemTotalPrice = document.querySelector('.main-header__cart-item-total-price')
-    const itemPrice = document.querySelector('.main-header__cart-item-price')
-    cartQuantityNum.innerHTML = actualQuantity -= 1
-    itemTotalPrice.innerHTML = `$ ${itemPrice.innerHTML.slice(2) * actualQuantity}`
+const minusOne = (e) => {
+    const quantity = e.target.nextElementSibling;
+    if (quantity.innerHTML > 1) {
+        quantity.innerHTML = Number(quantity.innerHTML) - 1;
+    }
 }
 
 cartContainer.addEventListener('click', e=> {
     if (e.target.classList.contains('agregar')) {
         const agregar = e.target
-        agregar.addEventListener('click', plusOne)
-        console.log(actualQuantity)        
+        agregar.addEventListener('click', plusOne(e))
+                
     }
     if (e.target.classList.contains('restar')) {
         const restar = e.target
         if (actualQuantity >= 1) {
-            restar.addEventListener('click', minusOne)
+            restar.addEventListener('click', minusOne(e))
         }        
-        console.log(actualQuantity)
+        
     }
     if (e.target.classList.contains('main-header__cart-item-remove')) {
         const remove = e.target
         remove.parentElement.parentElement.parentElement.remove()
-        cartItemList.pop()
+        cartItemList.pop(e)
     }
     if (e.target.classList.contains('.main-header__cart-item-total-price')) {
         cartItemList.addEventListener('change', e=> {
