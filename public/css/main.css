@@ -650,6 +650,7 @@ body {
 }
 .main-nav-cart-toggle:checked ~ .main-header .main-header__cart-container {
   display: block;
+  order: 3;
 }
 
 .main-footer {
@@ -758,6 +759,19 @@ body {
   border-radius: 0 0 5px 5px;
   backdrop-filter: blur(1px);
   background-color: hsla(258deg, 18%, 75%, 0.7);
+}
+@media (max-width: 768px) {
+  .main-header__cart-container {
+    position: absolute;
+    top: 150px;
+    right: 5px;
+  }
+}
+@media (max-width: 425px) {
+  .main-header__cart-container {
+    position: absolute;
+    top: 250px;
+  }
 }
 .main-header__cart-container::after {
   content: "";

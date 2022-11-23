@@ -20,6 +20,7 @@ $oxford-blue: hsl(218, 70%, 18%);
 
     &:checked ~ .main-header .main-header__cart-container {
         display: block;
+        order: 3;
     }
 
 }

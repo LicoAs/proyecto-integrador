@@ -19,7 +19,17 @@ $oxford-blue: hsl(218, 70%, 18%);
     border-radius: 0 0 5px 5px;
     backdrop-filter: blur(1px);
     background-color: hsla(258, 18%, 75%, 0.7);
-    }
+        @media (max-width: 768px) {
+            position: absolute;
+            top: 150px;
+            right: 5px;
+        }
+        @media (max-width: 425px) {    
+            position: absolute;
+            top: 250px;   
+            }
+        }  
+    
 
     &__cart-container::after {
     content: "";
@@ -75,6 +85,7 @@ $oxford-blue: hsl(218, 70%, 18%);
         }        
     }
 }
+
 
 .cart__{
     &button-container {
