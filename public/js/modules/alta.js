@@ -17,58 +17,51 @@ class PageAlta {
 
     static async init() {
         const inputs = document.querySelectorAll("input");
+        const longDesc = document.querySelector("textarea");
+        const regexMarca = new RegExp(/^[\wáéíóúüÁÉÍÓÚÜ .,-]{1,40}$/);
         const regexNombre = new RegExp(/^[\wáéíóúüÁÉÍÓÚÜ .,-]{1,30}$/);
         const regexPrecio = new RegExp(/^\d+$/);
-        const regexDescripcionLong = new RegExp(
-            /^[\wáéíóúüÁÉÍÓÚÜ ¿?¡!.,:-]{1,2000}$/
-        );
+        const regexStock = new RegExp(/^\d+$/);
         const regexDescripcionShort = new RegExp(
             /^[\wáéíóúüÁÉÍÓÚÜ ¿?¡!.,:-]{1,80}$/
         );
-        const regexMarca = new RegExp(/^[\wáéíóúüÁÉÍÓÚÜ .,-]{1,40}$/);
+        const regexDescripcionLong = new RegExp(
+            /^[\wáéíóúüÁÉÍÓÚÜ ¿?¡!.,:-]{1,2000}$/
+        );
+        const regexEdadHasta = new RegExp(/^\d+$/);
+        const regexEdadDesde = new RegExp(/^\d+$/);
         const submitButton = document.getElementById("submitButton");
 
         const inputList = [
-            { input: inputs[1], regex: regexMarca },
-            { input: inputs[2], regex: regexNombre },
-            { input: inputs[3], regex: regexPrecio },
-            { input: inputs[4], regex: regexPrecio },
-            { input: inputs[5], regex: regexDescripcionShort },
-            { input: inputs[6], regex: regexDescripcionLong },
-            { input: inputs[7], regex: regexPrecio },
-            { input: inputs[8], regex: regexPrecio },
+            { input: inputs[3], regex: regexMarca },
+            { input: inputs[4], regex: regexNombre },
+            { input: inputs[5], regex: regexPrecio },
+            { input: inputs[6], regex: regexStock },
+            { input: inputs[7], regex: regexDescripcionShort },
+            { input: inputs[8], regex: regexEdadDesde },
+            { input: inputs[9], regex: regexEdadHasta },
+            { input: longDesc, regex: regexDescripcionLong },
         ];
 
         const validate = (input, regexp) => {
             input.addEventListener("keydown", () => {
                 if (!regexp.test(input.value)) {
                     submitButton.setAttribute("disabled", "true");
-                } 
+                }
             });
         };
-        PageAlta.productsTableContainer = document.querySelector(
-            ".products-table-container"
-        );
 
         inputList.forEach((field) => {
             validate(field.input, field.regex);
         });
-        //document.addEventListener("keydown", () => {
-        //    validate(inputsAbc[1], regexMarca);
-        //    validate(inputsAbc[2], regexNombre);
-        //    validate(inputsAbc[3], regexPrecio);
-        //    validate(inputsAbc[4], regexPrecio);
-        //    validate(inputsAbc[5], regexDescripcionshort);
-        //    validate(inputsAbc[6], regexDescripcionLong);
-        //    validate(inputsAbc[7], regexPrecio);
-        //    validate(inputsAbc[8], regexPrecio);
-        //});
+
+        PageAlta.productsTableContainer = document.querySelector(
+            ".products-table-container"
+        );
+
         PageAlta.loadTable();
         PageAlta.addTableEvents();
     }
-    //static validate(value, validator) {
-    //    return validator.test(value);
-    //}
 
     static async deleteProduct(e) {
         if (!confirm("¿Estás seguro de querer eliminar el producto?")) {
@@ -101,15 +94,6 @@ class PageAlta {
             }
         });
     }
-
-    //static async renderTemplateTable(products) {
-    //    const hbsFile = await fetch("templates/products-table.hbs").then((r) =>
-    //        r.text()
-    //    );
-    //    const template = Handlebars.compile(hbsFile);
-    //    const html = template({ products });
-    //    PageAlta.productsTableContainer.innerHTML = html;
-    //}
 
     static prepareForm() {
         PageAlta.productForm = document.querySelector(".form-product");

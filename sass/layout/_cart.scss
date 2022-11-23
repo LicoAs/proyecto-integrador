@@ -23,10 +23,13 @@ $oxford-blue: hsl(218, 70%, 18%);
             position: absolute;
             top: 150px;
             right: 5px;
+            z-index: 100;
         }
         @media (max-width: 425px) {    
             position: absolute;
-            top: 250px;   
+            top: 250px;
+            right: 5px;
+            z-index: 100;   
             }
         }  
     
