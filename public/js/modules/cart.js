@@ -1,9 +1,18 @@
 const cartContainer = document.querySelector(".cart__items-container");
 let actualQuantity = 1
 let cartItemList = []
+const buyBtn = document.querySelector('.cart__buy-btn')
+
 const products = await fetch("/api/products/").then((res) => res.json());
 const cartItem =  (e) => {
     const newItem = document.createElement('div')
+    const item = {
+        price : products[e].price,
+        name : products[e].name,
+        imgSrc : products[e].imgSrc,
+        quantity : actualQuantity,
+        productId : products[e].id,
+    }
     newItem.classList.add('item')
     newItem.innerHTML = `<div class="main-header__cart">
     <div class="main-header__cart-item">
@@ -27,11 +36,22 @@ const cartItem =  (e) => {
 </div>    
     `
 cartContainer.appendChild(newItem)
-cartItemList.push(products[e])
+cartItemList.push(item)
 console.log(cartItemList)
 }
 
-
+buyBtn.addEventListener('click', async () => {
+    const result = await fetch('/api/carts/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(cartItemList)
+    }).then((res) => res.json())
+    console.log(result)
+    cartItemList = []
+    cartContainer.innerHTML = ''
+})
 
 const plusOne = (e) => {
     const quantity = e.target.previousElementSibling;
@@ -49,14 +69,12 @@ cartContainer.addEventListener('click', e=> {
     if (e.target.classList.contains('agregar')) {
         const agregar = e.target
         agregar.addEventListener('click', plusOne(e))
-                
     }
     if (e.target.classList.contains('restar')) {
         const restar = e.target
         if (actualQuantity >= 1) {
             restar.addEventListener('click', minusOne(e))
         }        
-        
     }
     if (e.target.classList.contains('main-header__cart-item-remove')) {
         const remove = e.target
@@ -75,5 +93,23 @@ cartContainer.addEventListener('click', e=> {
     }
 
 })
+
+class Cart {
+    constructor() {
+        this.cart = {};
+        this.client = "Default";
+        this.total = 0;
+        this.cartItems = 0;
+    }
+}
+
+class CartItems {
+    constructor(id, price) {
+        this.id = id;
+        this.price = price;
+        this.quantity = 1;
+        this.subtotal = price;
+    }
+}
 
 export {cartItem, cartItemList}

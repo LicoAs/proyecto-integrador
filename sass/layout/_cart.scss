@@ -11,28 +11,18 @@ $oxford-blue: hsl(218, 70%, 18%);
     display: none;    
     width: 35%;
     height: fit-content;
-    position: absolute;
-    top: 80px;
-    right: 5px;
     z-index: 100;
     border: 2px solid $purple-mountain-majesty;
     border-radius: 0 0 5px 5px;
     backdrop-filter: blur(1px);
     background-color: hsla(258, 18%, 75%, 0.7);
         @media (max-width: 768px) {
-            position: absolute;
-            top: 150px;
-            right: 5px;
             z-index: 100;
         }
         @media (max-width: 425px) {    
-            position: absolute;
-            top: 250px;
-            right: 5px;
             z-index: 100;   
             }
         }  
-    
 
     &__cart-container::after {
     content: "";

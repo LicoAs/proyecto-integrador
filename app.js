@@ -1,5 +1,6 @@
 import express from 'express';
 import routerProducts from './routers/products.js';
+import routerCarts from './routers/cart.js';
 import ProductModelMongoDB from './models/DB/MongoDB.js';
 import config from './config.js';
 import morgan from 'morgan';
@@ -14,6 +15,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 app.use('/api/products', routerProducts);
+app.use('/api/carts', routerCarts);
 
 
 const PORT = config.PORT;

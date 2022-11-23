@@ -1,0 +1,63 @@
+import config from '../config.js';
+import Model from '../models/cart-mongodb.js';
+
+
+const model = new Model();
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+//                                API Get ALL                                //
+///////////////////////////////////////////////////////////////////////////////
+const getCarts = async () => {
+    const carts = await model.readCarts();
+    return carts;
+};
+
+
+///////////////////////////////////////////////////////////////////////////////
+//                                API Get One                                //
+///////////////////////////////////////////////////////////////////////////////
+const getCart = async id => {
+    const Cart = await model.readCart(id);
+    return Cart;
+};
+
+
+////////////////////////////////////////////////////////////////////////////////
+//                                 API Create                                 //
+////////////////////////////////////////////////////////////////////////////////
+
+const createCart = async Cart => {
+    const createdCart = await model.createCart(Cart);
+    return createdCart;
+};
+
+
+////////////////////////////////////////////////////////////////////////////////
+//                                 API Update                                 //
+////////////////////////////////////////////////////////////////////////////////
+
+const updateCart = async (id, Cart) => {
+    const updatedCart = await model.updateCart(id, Cart);
+    return updatedCart;
+};
+
+
+////////////////////////////////////////////////////////////////////////////////
+//                                 API Delete                                 //
+////////////////////////////////////////////////////////////////////////////////
+
+const deleteCart = async id => {
+    const removedCart = await model.deleteCart(id);
+    return removedCart;
+};
+
+
+export default {
+    getCarts,
+    getCart,
+    createCart,
+    updateCart,
+    deleteCart
+};
