@@ -66,13 +66,6 @@ class ProductModelMongoDB {
             return {};
         }
         try {
-            // const products = await ProductsModel.find({_id: id});
-            // if (!products.length) {
-            //     return {};
-            // }
-            // return products[0];
-            // const product = await ProductsModel.findOne({_id: id}) || {};
-            // return product;
             const product = (await ProductsModel.findById(id).lean()) || {};
             return DBMongoDB.getObjectWithId(product);
         } catch (error) {
@@ -93,13 +86,7 @@ class ProductModelMongoDB {
             return {};
         }
         try {
-            // const updatedProduct = await ProductsModel.updateOne({_id: id}, {$set: product});
-            // console.log('updatedProduct:', updatedProduct);
-
-            // const updatedProduct = await ProductsModel.findOneAndUpdate({_id: id}, {$set: product});
-            // const updatedProduct = await ProductsModel.findOneAndUpdate({_id: id}, {$set: product}, {
-            //     returnDocument: 'after'
-            // });
+            
             const updatedProduct =
                 (await ProductsModel.findByIdAndUpdate(
                     id,
@@ -127,7 +114,7 @@ class ProductModelMongoDB {
             return {};
         }
         try {
-            // await ProductsModel.deleteOne({_id: id});
+            
             const deletedProduct =
                 (await ProductsModel.findByIdAndDelete(id).lean()) || {};
             return DBMongoDB.getObjectWithId(deletedProduct);

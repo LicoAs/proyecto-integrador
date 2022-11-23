@@ -12,13 +12,12 @@ class DBMongoDB {
     static newIdPropertyName = 'id';
 
     static getObjectWithId(obj) {
-        // console.log('ANTES:', obj);
         if (Array.isArray(obj)) {
             obj.forEach(element => DBMongoDB.replaceIdProperty(element));
         } else {
             DBMongoDB.replaceIdProperty(obj);
         }
-        // console.log('DESPUÉS:', obj);
+
 
         return obj;
     }
@@ -33,9 +32,7 @@ class DBMongoDB {
 
     static async connectDB() {
         try {
-            // console.log('mongoose.connection.readyState:', mongoose.connection.readyState);
             if (mongoose.connection.readyState === DBMongoDB.READY_STATE_CONNECTED) {
-                // console.log('Ya conectado');
                 return true;
             }
             await mongoose.connect(config.MONGODB_CONNECTION_STR, {

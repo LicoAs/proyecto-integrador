@@ -1,6 +1,4 @@
 const cartContainer = document.querySelector(".cart__items-container");
-const cartQuantityNum = document.querySelector('.main-header__cart-item-quantity-number')
-const cartItems = document.querySelectorAll('.item')
 let actualQuantity = 1
 let cartItemList = []
 const products = await fetch("/api/products/").then((res) => res.json());
@@ -77,14 +75,5 @@ cartContainer.addEventListener('click', e=> {
     }
 
 })
-
-//cartItemList.forEach(item => {
-//
-//}
-
-
-
-
-
 
 export {cartItem, cartItemList}

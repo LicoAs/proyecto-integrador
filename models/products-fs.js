@@ -65,7 +65,7 @@ class ProductModelFile {
         const products = await this.readFileProducts();
         
         const index = products.findIndex( product => product.id === id );
-        // Si no se encontró
+        
         if (index === -1) {
             return {};
         }
@@ -84,7 +84,7 @@ class ProductModelFile {
         const products = await this.readFileProducts();
 
         const index = products.findIndex( product => product.id === id);
-        // Si no se encontró
+        
         if (index === -1) {
             return {};
         }

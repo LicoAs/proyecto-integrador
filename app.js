@@ -4,7 +4,6 @@ import ProductModelMongoDB from './models/DB/MongoDB.js';
 import config from './config.js';
 import morgan from 'morgan';
 
-// await ProductModelMongoDB.connectDB();
 ProductModelMongoDB.connectDB();
 
 const app = express();

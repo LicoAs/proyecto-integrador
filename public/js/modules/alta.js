@@ -8,13 +8,6 @@ class PageAlta {
     static btnUpdate;
     static btnCancel;
 
-    //static validators = {
-    //    id: /^[\da-f]{24}$/,
-    //    name: /^[\wáéíóúüÁÉÍÓÚÜ .,-]{1,30}$/,
-    //    price: /^\d+$/,
-    //    description: /^[\wáéíóúüÁÉÍÓÚÜ ¿?¡!.,:-]{1,200}$/,
-    //};
-
     static async init() {
         const inputs = document.querySelectorAll("input");
         const longDesc = document.querySelector("textarea");

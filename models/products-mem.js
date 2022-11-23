@@ -37,7 +37,7 @@ class ProductModelMem {
         product.id = id;
 
         const index = this.products.findIndex( product => product.id === id );
-        // Si no se encontró
+        
         if (index === -1) {
             return {};
         }
@@ -51,7 +51,7 @@ class ProductModelMem {
 
     async deleteProduct (id) {
         const index = this.products.findIndex( product => product.id === id);
-        // Si no se encontró
+        
         if (index === -1) {
             return {};
         }
