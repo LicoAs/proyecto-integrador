@@ -2,6 +2,9 @@ const cartContainer = document.querySelector(".cart__items-container");
 let actualQuantity = 1;
 let cartItemList = [];
 const buyBtn = document.querySelector(".cart__buy-btn");
+const closeBtn = document.querySelector(".cart__close-btn");
+const toggleCart = document.querySelector(".main-nav-cart-toggle");
+const clearCartBtn = document.querySelector(".cart__clear-btn");
 
 const products = await fetch("/api/products/").then((res) => res.json());
 
@@ -55,6 +58,13 @@ buyBtn.addEventListener("click", async () => {
     cartContainer.innerHTML = "";
     updateTotalPrice();
 });
+
+clearCartBtn.addEventListener("click", () => {
+    cartItemList = [];
+    cartContainer.innerHTML = "";
+    updateTotalPrice();
+});
+
 
 const plusOne = (e) => {
     const id = e.target.dataset.plus;
@@ -118,8 +128,7 @@ cartContainer.addEventListener("click", (e) => {
     }
 });
 
-const closeBtn = document.querySelector(".cart__close-btn");
-const toggleCart = document.querySelector(".main-nav-cart-toggle");
+
 closeBtn.addEventListener("click", (e) => {
     if (toggleCart.checked) {
         toggleCart.checked = false;
