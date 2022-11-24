@@ -16,7 +16,6 @@ class PageInicio {
         const products = await fetch("/api/products/").then((res) =>
             res.json()
         );
-        console.log(products);
         products.forEach((producto) => {
             const newCard = document.createElement("div");
             newCard.classList.add("card");
