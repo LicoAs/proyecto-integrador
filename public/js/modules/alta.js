@@ -38,7 +38,7 @@ class PageAlta {
 
         const validate = (input, regexp, span, error) => {
             input.addEventListener("keydown", () => {
-                if (!regexp.test(input.value)) {                
+                if (regexp.test(input.value)) {
                     document.querySelector(span).innerHTML = "Parece válido ✔";
                     document.querySelector(span).style.color = "greenyellow";
                     document.querySelector(span).style.border = "greenyellow 1px solid";
