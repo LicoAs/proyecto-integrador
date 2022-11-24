@@ -776,7 +776,7 @@ body {
   border-radius: 0 0 5px 5px;
   font-family: "Barlow Condensed", sans-serif;
   backdrop-filter: blur(1px);
-  background-color: hsla(258deg, 18%, 75%, 0.7);
+  background-color: hsla(258deg, 18%, 75%, 0.8);
 }
 @media (max-width: 1024px) {
   .main-header__cart-container {
@@ -827,7 +827,7 @@ body {
   align-items: center;
   padding: 10px;
   border-bottom: 1px solid hsl(270deg, 24%, 61%);
-  background-color: rgba(255, 255, 255, 0.35);
+  background-color: rgba(0, 0, 0, 0.25);
   color: white;
   margin-bottom: 1%;
 }
@@ -888,9 +888,12 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 10px 70px 10px 10px;
-  background-color: rgba(255, 255, 255, 0.35);
+  font-size: 2em;
   color: hsl(206deg, 70%, 8%);
+  padding: 10px 70px 10px 10px;
+  background-color: hsla(258deg, 18%, 75%, 0.8);
+  color: hsl(206deg, 70%, 8%);
+  border-bottom: 1px solid hsl(270deg, 24%, 61%);
 }
 .cart__close-btn {
   position: absolute;
