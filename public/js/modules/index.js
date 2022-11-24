@@ -1,4 +1,4 @@
-import { cartItem } from "./cart.js";
+import { cartItem, updateTotalPrice } from "./cart.js";
 
 class PageInicio {
     static async init() {
@@ -97,7 +97,7 @@ class PageInicio {
         });
         for (let i = 0; i < cards.length; i++) {
             buy[i].addEventListener("click", () => {
-                cardBottom[i].classList.toggle("clicked"), cartItem(i);
+                cardBottom[i].classList.toggle("clicked"), cartItem(i), updateTotalPrice();
             });
             remov[i].addEventListener("click", () =>
                 cardBottom[i].classList.toggle("clicked")

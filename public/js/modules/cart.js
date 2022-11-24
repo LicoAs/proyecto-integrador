@@ -1,9 +1,10 @@
 const cartContainer = document.querySelector(".cart__items-container");
-let actualQuantity = 1
-let cartItemList = []
+let actualQuantity = 1;
+let cartItemList = [];
 const buyBtn = document.querySelector('.cart__buy-btn')
 
 const products = await fetch("/api/products/").then((res) => res.json());
+
 const cartItem =  (e) => {
     const newItem = document.createElement('div')
     const item = {
@@ -12,6 +13,7 @@ const cartItem =  (e) => {
         imgSrc : products[e].imgSrc,
         quantity : actualQuantity,
         productId : products[e].id,
+        subtotal : products[e].price * actualQuantity
     }
     newItem.classList.add('item')
     newItem.innerHTML = `<div class="main-header__cart">
@@ -22,12 +24,12 @@ const cartItem =  (e) => {
             <p class="main-header__cart-item-price">$ ${products[e].price}</p>
         </div>
         <div class="main-header__cart-item-quantity">
-            <button class="main-header__cart-item-quantity-button restar">-</button>
+            <button class="main-header__cart-item-quantity-button restar" data-minus = "${item.productId}">-</button>
             <p class="main-header__cart-item-quantity-number">${actualQuantity}</p>
-            <button class="main-header__cart-item-quantity-button agregar">+</button>
+            <button class="main-header__cart-item-quantity-button agregar" data-plus = "${item.productId}">+</button>
             </div>
             <div class="main-header__cart-item-total">
-                <p class="main-header__cart-item-total-price">$ ${products[e].price * actualQuantity}</p>
+                <p class="main-header__cart-item-total-price" data-subtotal = "${item.productId}">$${item.subtotal}</p>
             </div>
             <div class="main-header__cart-item-delete">
                 <button class="main-header__cart-item-remove">X</button>
@@ -51,24 +53,58 @@ buyBtn.addEventListener('click', async () => {
     console.log(result)
     cartItemList = []
     cartContainer.innerHTML = ''
+    updateTotalPrice()
 })
 
 const plusOne = (e) => {
-    const quantity = e.target.previousElementSibling;
-    quantity.innerHTML = Number(quantity.innerHTML) + 1;
+    const id = e.target.dataset.plus
+    e.target.totalprice = document.querySelector(`[data-subtotal="${id}"]`)
+    const product = cartItemList.find((item) => item.productId === id);
+    product.quantity++;
+    product.subtotal = product.price * product.quantity
+    e.target.previousElementSibling.innerHTML = product.quantity;
+    e.target.totalprice.innerHTML = `$${product.subtotal}`;
+    updateTotalPrice()
 }
 
+
+
 const minusOne = (e) => {
-    const quantity = e.target.nextElementSibling;
-    if (quantity.innerHTML > 1) {
-        quantity.innerHTML = Number(quantity.innerHTML) - 1;
+    const id = e.target.dataset.minus
+    e.target.totalprice = document.querySelector(`[data-subtotal="${id}"]`)
+    const product = cartItemList.find((item) => item.productId === id);
+    if (product.quantity > 1) {
+        product.quantity--;
+        product.subtotal = product.price * product.quantity
+        e.target.nextElementSibling.innerHTML = product.quantity;
+        e.target.totalprice.innerHTML = `$${product.subtotal}`;
+        updateTotalPrice()
     }
+}
+
+const updateTotalPrice = () => {
+    const sum = 0
+    const total = document.querySelector('.cart__total')
+    const totales = document.querySelectorAll('.main-header__cart-item-total-price')
+    let totalNumber = 0
+
+    if (cartItemList.length == 0) {
+        total.innerHTML = `No hay productos en el carrito`
+        return
+    }
+
+    for (let i = 0; i < totales.length; i++) {
+        totalNumber += Number(totales[i].innerHTML.slice(1))
+        total.innerHTML = `Total: $ ${totalNumber}`	
+        }
+
 }
 
 cartContainer.addEventListener('click', e=> {
     if (e.target.classList.contains('agregar')) {
         const agregar = e.target
         agregar.addEventListener('click', plusOne(e))
+        
     }
     if (e.target.classList.contains('restar')) {
         const restar = e.target
@@ -80,19 +116,14 @@ cartContainer.addEventListener('click', e=> {
         const remove = e.target
         remove.parentElement.parentElement.parentElement.remove()
         cartItemList.pop(e)
-    }
-    if (e.target.classList.contains('.main-header__cart-item-total-price')) {
-        cartItemList.addEventListener('change', e=> {
-            const sum = 0
-            const total = e.target.querySelector('.cart__total')
-            const totales = document.querySelectorAll('.main-header__cart-item-total-price')
-            for (let i = 0; i < totales.length; i++) {
-                total.innerHTML = sum += totales[i]
-            }    
-        })
+        updateTotalPrice()
+
     }
 
+
 })
+
+
 
 class Cart {
     constructor() {
@@ -112,4 +143,6 @@ class CartItems {
     }
 }
 
-export {cartItem, cartItemList}
+
+
+export {cartItem, cartItemList, updateTotalPrice}

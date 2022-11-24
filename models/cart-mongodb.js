@@ -7,6 +7,7 @@ const cartSchema = mongoose.Schema({
     imgSrc : String,
     quantity : Number,
     productId : String,
+    subtotal : Number
 });
 
 // Modelo del documento almacenado en la colección
