@@ -507,10 +507,17 @@ body {
 }
 .main-header__cart-button-container img {
   width: 40px;
+  cursor: pointer;
+}
+.main-header__cart-toggle-label {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
 }
 .main-header__hamburguer-button-container {
   background-color: hsl(245deg, 73%, 62%);
   padding: 0em;
+  cursor: pointer;
 }
 @media (min-width: 768px) {
   .main-header__hamburguer-button-container {
