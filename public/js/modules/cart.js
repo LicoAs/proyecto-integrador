@@ -1,21 +1,21 @@
 const cartContainer = document.querySelector(".cart__items-container");
 let actualQuantity = 1;
 let cartItemList = [];
-const buyBtn = document.querySelector('.cart__buy-btn')
+const buyBtn = document.querySelector(".cart__buy-btn");
 
 const products = await fetch("/api/products/").then((res) => res.json());
 
-const cartItem =  (e) => {
-    const newItem = document.createElement('div')
+const cartItem = (e) => {
+    const newItem = document.createElement("div");
     const item = {
-        price : products[e].price,
-        name : products[e].name,
-        imgSrc : products[e].imgSrc,
-        quantity : actualQuantity,
-        productId : products[e].id,
-        subtotal : products[e].price * actualQuantity
-    }
-    newItem.classList.add('item')
+        price: products[e].price,
+        name: products[e].name,
+        imgSrc: products[e].imgSrc,
+        quantity: actualQuantity,
+        productId: products[e].id,
+        subtotal: products[e].price * actualQuantity,
+    };
+    newItem.classList.add("item");
     newItem.innerHTML = `<div class="main-header__cart">
     <div class="main-header__cart-item">
         <img src="${products[e].imgSrc}" alt="${products[e].name}" class="main-header__cart-item-img">
@@ -36,93 +36,115 @@ const cartItem =  (e) => {
             </div>    
     </div>
 </div>    
-    `
-cartContainer.appendChild(newItem)
-cartItemList.push(item)
-console.log(cartItemList)
-}
+    `;
+    cartContainer.appendChild(newItem);
+    cartItemList.push(item);
+    console.log(cartItemList);
+};
 
-buyBtn.addEventListener('click', async () => {
-    const result = await fetch('/api/carts/', {
-        method: 'POST',
+buyBtn.addEventListener("click", async () => {
+    const result = await fetch("/api/carts/", {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
         },
-        body: JSON.stringify(cartItemList)
-    }).then((res) => res.json())
-    console.log(result)
-    cartItemList = []
-    cartContainer.innerHTML = ''
-    updateTotalPrice()
-})
+        body: JSON.stringify(cartItemList),
+    }).then((res) => res.json());
+    console.log(result);
+    cartItemList = [];
+    cartContainer.innerHTML = "";
+    updateTotalPrice();
+});
 
 const plusOne = (e) => {
-    const id = e.target.dataset.plus
-    e.target.totalprice = document.querySelector(`[data-subtotal="${id}"]`)
+    const id = e.target.dataset.plus;
+    e.target.totalprice = document.querySelector(`[data-subtotal="${id}"]`);
     const product = cartItemList.find((item) => item.productId === id);
     product.quantity++;
-    product.subtotal = product.price * product.quantity
+    product.subtotal = product.price * product.quantity;
     e.target.previousElementSibling.innerHTML = product.quantity;
     e.target.totalprice.innerHTML = `$${product.subtotal}`;
-    updateTotalPrice()
-}
-
-
+    updateTotalPrice();
+};
 
 const minusOne = (e) => {
-    const id = e.target.dataset.minus
-    e.target.totalprice = document.querySelector(`[data-subtotal="${id}"]`)
+    const id = e.target.dataset.minus;
+    e.target.totalprice = document.querySelector(`[data-subtotal="${id}"]`);
     const product = cartItemList.find((item) => item.productId === id);
     if (product.quantity > 1) {
         product.quantity--;
-        product.subtotal = product.price * product.quantity
+        product.subtotal = product.price * product.quantity;
         e.target.nextElementSibling.innerHTML = product.quantity;
         e.target.totalprice.innerHTML = `$${product.subtotal}`;
-        updateTotalPrice()
+        updateTotalPrice();
     }
-}
+};
 
 const updateTotalPrice = () => {
-    const sum = 0
-    const total = document.querySelector('.cart__total')
-    const totales = document.querySelectorAll('.main-header__cart-item-total-price')
-    let totalNumber = 0
+    const sum = 0;
+    const total = document.querySelector(".cart__total");
+    const totales = document.querySelectorAll(
+        ".main-header__cart-item-total-price"
+    );
+    let totalNumber = 0;
 
     if (cartItemList.length == 0) {
-        total.innerHTML = `No hay productos en el carrito`
-        return
+        total.innerHTML = `No hay productos en el carrito`;
+        return;
     }
 
     for (let i = 0; i < totales.length; i++) {
-        totalNumber += Number(totales[i].innerHTML.slice(1))
-        total.innerHTML = `Total: $ ${totalNumber}`	
-        }
-
-}
-
-cartContainer.addEventListener('click', e=> {
-    if (e.target.classList.contains('agregar')) {
-        const agregar = e.target
-        agregar.addEventListener('click', plusOne(e))
-        
+        totalNumber += Number(totales[i].innerHTML.slice(1));
+        total.innerHTML = `Total: $ ${totalNumber}`;
     }
-    if (e.target.classList.contains('restar')) {
-        const restar = e.target
+};
+
+cartContainer.addEventListener("click", (e) => {
+    if (e.target.classList.contains("agregar")) {
+        const agregar = e.target;
+        agregar.addEventListener("click", plusOne(e));
+    }
+    if (e.target.classList.contains("restar")) {
+        const restar = e.target;
         if (actualQuantity >= 1) {
-            restar.addEventListener('click', minusOne(e))
-        }        
+            restar.addEventListener("click", minusOne(e));
+        }
     }
-    if (e.target.classList.contains('main-header__cart-item-remove')) {
-        const remove = e.target
-        remove.parentElement.parentElement.parentElement.remove()
-        cartItemList.pop(e)
-        updateTotalPrice()
-
+    if (e.target.classList.contains("main-header__cart-item-remove")) {
+        const remove = e.target;
+        remove.parentElement.parentElement.parentElement.remove();
+        cartItemList.pop(e);
+        updateTotalPrice();
     }
+});
 
+const closeBtn = document.querySelector(".cart__close-btn");
+const toggleCart = document.querySelector(".main-nav-cart-toggle");
+closeBtn.addEventListener("click", (e) => {
+    if (toggleCart.checked) {
+        toggleCart.checked = false;
+    }
+});
+document.addEventListener("keydown", function(event) {
+    const key = event.key;
+    if (key === "Escape") {
+        if (toggleCart.checked) {
+            toggleCart.checked = false;
+        }
+    }
+});
 
-})
+//A REPARAR
 
+//document.addEventListener('click', function(e){   
+//    const cart = document.querySelector('.main-header__cart');
+//    if (toggleCart.checked) {
+//        if (cart.contains(e.target)) {
+//            toggleCart.checked = true;
+//            console.log(e.target);
+//        }
+//    }
+//});
 
 
 class Cart {
@@ -143,6 +165,4 @@ class CartItems {
     }
 }
 
-
-
-export {cartItem, cartItemList, updateTotalPrice}
+export { cartItem, cartItemList, updateTotalPrice };
