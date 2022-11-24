@@ -57,6 +57,7 @@ buyBtn.addEventListener("click", async () => {
     cartItemList = [];
     cartContainer.innerHTML = "";
     updateTotalPrice();
+    toggleCart.checked = false;
 });
 
 clearCartBtn.addEventListener("click", () => {
