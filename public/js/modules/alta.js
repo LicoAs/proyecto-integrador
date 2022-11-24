@@ -26,27 +26,50 @@ class PageAlta {
         const submitButton = document.getElementById("submitButton");
 
         const inputList = [
-            { input: inputs[3], regex: regexMarca },
-            { input: inputs[4], regex: regexNombre },
-            { input: inputs[5], regex: regexPrecio },
-            { input: inputs[6], regex: regexStock },
-            { input: inputs[7], regex: regexDescripcionShort },
-            { input: inputs[8], regex: regexEdadDesde },
-            { input: inputs[9], regex: regexEdadHasta },
-            { input: longDesc, regex: regexDescripcionLong },
+            { input: inputs[3], regex: regexMarca, span: ".spanMarca", error: "El campo marca solo puede contener letras, números y los siguientes caracteres: .,-" },
+            { input: inputs[4], regex: regexNombre, span: ".spanNombre", error: "El campo nombre solo puede contener letras, números y los siguientes caracteres: .,-" },
+            { input: inputs[5], regex: regexPrecio, span: ".spanPrecio", error: "El campo precio solo puede contener números" },
+            { input: inputs[6], regex: regexStock , span: ".spanStock", error: "El campo stock solo puede contener números" },
+            { input: inputs[7], regex: regexDescripcionShort, span: ".spanDescripcionShort", error: "El campo descripción corta solo puede contener letras, números y los siguientes caracteres: .,-" },
+            { input: inputs[8], regex: regexEdadDesde, span: ".spanEdadDesde", error: "El campo edad desde solo puede contener números" },
+            { input: inputs[9], regex: regexEdadHasta, span: ".spanEdadHasta", error: "El campo edad hasta solo puede contener números" },
+            { input: longDesc, regex: regexDescripcionLong, span: ".spanDescripcionLong", error: "El campo descripción larga solo puede contener letras, números y los siguientes caracteres: .,-" },
         ];
 
-        const validate = (input, regexp) => {
+        const validate = (input, regexp, span, error) => {
             input.addEventListener("keydown", () => {
-                if (!regexp.test(input.value)) {
+                if (regexp.test(input.value) && input.value !== "") {
+                    document.querySelector(span).innerHTML = "Parece válido ✔";
+                    document.querySelector(span).style.color = "greenyellow";
+                    document.querySelector(span).style.border = "greenyellow 1px solid";
+                    document.querySelector(span).style.margin = "10px 0px 0px 0px";
+                    document.querySelector(span).style.padding = "5px";
+                    document.querySelector(span).style.borderRadius = "3px";
+                    document.querySelector(span).style.fontSize = "20px";
+
+                    submitButton.removeAttribute("disabled");
+                } else {
+                    document.querySelector(span).innerHTML = error;
+                    document.querySelector(span).style.color = "red";
+                    document.querySelector(span).style.border = "red 1px solid";
+                    document.querySelector(span).style.margin = "10px 0px 0px 0px";
+                    document.querySelector(span).style.padding = "5px";
+                    document.querySelector(span).style.borderRadius = "3px";
+                    document.querySelector(span).style.fontSize = "20px";
                     submitButton.setAttribute("disabled", "true");
                 }
             });
         };
 
-        inputList.forEach((field) => {
-            validate(field.input, field.regex);
-        });
+        
+            inputList.forEach((input) => {
+                validate(input.input, input.regex, input.span, input.error);
+            });
+        
+
+        //inputList.forEach((field) => {
+        //    validate(field.input, field.regex);
+        //});
 
         PageAlta.productsTableContainer = document.querySelector(
             ".products-table-container"
